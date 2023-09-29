@@ -1,1 +1,10 @@
+import csv
+import pandas as pd
 
+sum = 0
+
+with open('values.csv', mode = 'r') as file:
+    csvFile = csv.reader(file)
+
+    data = pd.read_csv('values.csv')
+    df = pd.DataFrame(data)
