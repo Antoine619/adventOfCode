@@ -1,10 +1,19 @@
-import csv
-import pandas as pd
+values = open('values.txt','r')
 
-sum = 0
+biggest = 0
+sumCurrent = 0
 
-with open('values.csv', mode = 'r') as file:
-    csvFile = csv.reader(file)
 
-    data = pd.read_csv('values.csv')
-    df = pd.DataFrame(data)
+for line in values:
+
+    if line != '\n':
+        sumCurrent += int(line)
+    
+    elif sumCurrent > biggest:
+        biggest = sumCurrent
+        sumCurrent = 0
+        
+    else:
+        sumCurrent = 0
+    
+print(biggest)
