@@ -22,12 +22,9 @@ for line in values:
         
     else:
         sumCurrent = 0
+
         
 sumThree.reverse()
-answer = sorted(sumThree)
+answer = biggestOne+bigTwo+bigThree
 
-print(biggestOne)
-print(bigTwo)
-print(bigThree)
-print(sumThree)
 print(answer)
