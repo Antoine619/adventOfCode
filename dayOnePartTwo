@@ -1,0 +1,33 @@
+values = open('values.txt','r')
+
+biggestOne = 0
+bigTwo = 0
+bigThree = 0
+sumCurrent = 0
+
+sumThree = []
+
+for line in values:
+
+    if line != '\n':
+        sumCurrent += int(line)
+        sumThree.append(sumCurrent)
+    
+    elif sumCurrent > biggestOne:
+        bigThree = bigTwo
+        bigTwo = biggestOne
+        biggestOne = sumCurrent
+        sumThree.append(biggestOne)
+        sumCurrent = 0
+        
+    else:
+        sumCurrent = 0
+        
+sumThree.reverse()
+answer = sorted(sumThree)
+
+print(biggestOne)
+print(bigTwo)
+print(bigThree)
+print(sumThree)
+print(answer)
