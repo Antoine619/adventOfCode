@@ -1,0 +1,12 @@
+values = open("advent/input.txt")
+for char in values:
+    
+    currentchar = values[i]
+    secondchar = values[i+1]
+    thirdchar = values[i+2]
+    fourthchar = values[i+3]
+    if (currentchar != secondchar or currentchar != thirdchar or currentchar != fourthchar):
+        # if (currentchar != thirdchar):
+            # if (currentchar != fourthchar):
+                print(fourthchar)
+        
