@@ -1,0 +1,16 @@
+with open("advent/input.txt", "r") as f:
+    input = f.read()
+
+for i in range(len(input)-3):    
+    currentchar = input[i]
+    secondchar = input[i+1]
+    thirdchar = input[i+2]
+    fourthchar = input[i+3]
+    if (currentchar != secondchar) and (currentchar != thirdchar) and (currentchar != fourthchar):
+        if (secondchar != thirdchar) and (secondchar != fourthchar) and (thirdchar != fourthchar):
+            print(i)
+            print(currentchar)
+            print(secondchar)
+            print(thirdchar)
+            print(fourthchar)
+            break
