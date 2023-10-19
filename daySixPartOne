@@ -8,7 +8,7 @@ for i in range(len(input)-3):
     fourthchar = input[i+3]
     if (currentchar != secondchar) and (currentchar != thirdchar) and (currentchar != fourthchar):
         if (secondchar != thirdchar) and (secondchar != fourthchar) and (thirdchar != fourthchar):
-            print(i)
+            print(i+)
             print(currentchar)
             print(secondchar)
             print(thirdchar)
