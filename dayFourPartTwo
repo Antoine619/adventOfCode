@@ -1,17 +1,14 @@
-values = open('dayFour/values.txt')
+values = open('advent/input.txt')
 
 count = 0
 
 for line in values:
-    firstGroup = line[0:line.index(',')]
-    secondGroup = line[line.index(',') +1 :]
+    firstGroup, secondGroup = line.split(',')
 
-    firstNum = firstGroup[0: firstGroup.index('-')]
-    secondNum = firstGroup[firstGroup.index('-') + 1:]
-    thirdNum = secondGroup[0: secondGroup.index('-')]
-    fourthNum = secondGroup[secondGroup.index('-') + 1:]
+    firstNum, secondNum = map(int, firstGroup.split('-'))
+    thirdNum, fourthNum = map(int, secondGroup.split('-'))
 
-    if():
-        count+=1
+    if (secondNum < thirdNum) or (fourthNum < firstNum):
+        count += 1
 
 print(count)
