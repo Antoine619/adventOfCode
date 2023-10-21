@@ -1,22 +1,14 @@
-#returns wrong value !! :(
-
-values = open('dayFour/values.txt')
+values = open('advent/input.txt')
 
 count = 0
 
 for line in values:
-    
-    firstGroup = line[0:line.index(',')]
-    secondGroup = line[line.index(',') +1 :]
+    firstGroup, secondGroup = line.split(',')
 
-    firstNum = firstGroup[0: firstGroup.index('-')]
-    secondNum = firstGroup[firstGroup.index('-') + 1:]
-    thirdNum = secondGroup[0: secondGroup.index('-')]
-    fourthNum = secondGroup[secondGroup.index('-') + 1:]
+    firstNum, secondNum = map(int, firstGroup.split('-'))
+    thirdNum, fourthNum = map(int, secondGroup.split('-'))
 
-    if(firstNum <= thirdNum and secondNum >= fourthNum):
-        count+=1
-    if(thirdNum <= firstNum and fourthNum >= secondNum):
-        count+=1
+    if (firstNum <= thirdNum and secondNum >= fourthNum) or (thirdNum <= firstNum and fourthNum >= secondNum):
+        count += 1
 
 print(count)
