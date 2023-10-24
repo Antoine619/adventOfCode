@@ -1,0 +1,10 @@
+with open("advent/input.txt") as f:
+    lines = f.readlines()
+
+omit = ["move", "from", "to", " ",]
+newlines = []
+for line in lines:
+    for word in omit:
+        line = line.replace(word, '')
+    newlines.append(line)
+print(newlines)
