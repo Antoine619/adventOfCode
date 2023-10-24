@@ -8,7 +8,7 @@ for line in values:
     firstNum, secondNum = map(int, firstGroup.split('-'))
     thirdNum, fourthNum = map(int, secondGroup.split('-'))
 
-    if (secondNum < thirdNum) or (fourthNum < firstNum):
+    if not (secondNum < thirdNum or fourthNum < firstNum):
         count += 1
 
 print(count)
