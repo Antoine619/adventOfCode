@@ -1,10 +1,29 @@
 with open("advent/input.txt") as f:
     lines = f.readlines()
 
-omit = ["move", "from", "to", " ",]
+omit = ["move", "from", "to"]
 newlines = []
 for line in lines:
     for word in omit:
         line = line.replace(word, '')
     newlines.append(line)
-print(newlines)
+
+stack1 = ['F','T','C','L','R','P','G','Q']
+stack2 = ['N','Q','H','W','R','F','S','J']
+stack3 = ['F','B','H','W','P','M','Q']
+stack4 = ['V','S','T','D','F',]
+stack5 = ['Q','L','D','W','V','F','Z']
+stack6 = ['Z','C','L','S']
+stack7 = ['Z','B','M','V','D','F']
+stack8 = ['T','J','B']
+stack9 = ['Q','N','B','G','L','S','P','H']
+
+crates = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9]
+
+for line in newlines:
+    inst = line
+    print(inst)
+
+
+
+
