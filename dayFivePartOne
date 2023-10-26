@@ -1,29 +1,49 @@
 with open("advent/input.txt") as f:
     lines = f.readlines()
 
-omit = ["move", "from", "to"]
+omit = ["move", "from", "to", "\n", " "]
 newlines = []
 for line in lines:
     for word in omit:
         line = line.replace(word, '')
     newlines.append(line)
 
-stack1 = ['F','T','C','L','R','P','G','Q']
-stack2 = ['N','Q','H','W','R','F','S','J']
-stack3 = ['F','B','H','W','P','M','Q']
-stack4 = ['V','S','T','D','F',]
-stack5 = ['Q','L','D','W','V','F','Z']
-stack6 = ['Z','C','L','S']
-stack7 = ['Z','B','M','V','D','F']
-stack8 = ['T','J','B']
-stack9 = ['Q','N','B','G','L','S','P','H']
+stack1 = ['FTCLRPGQ']
+stack2 = ['NQHWRFSJ']
+stack3 = ['FBHWPMQ']
+stack4 = ['VSTDF']
+stack5 = ['QLDWVFZ']
+stack6 = ['ZCLS']
+stack7 = ['ZBMVDF']
+stack8 = ['TJB']
+stack9 = ['QNBGLSPH']
 
 crates = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9]
+inst = line
 
-for line in newlines:
-    inst = line
-    print(inst)
+for inst in newlines:
+    #print(inst)
+    if len(inst) == 4:
+        oldcolumn = int(inst[2])
+        newcolumn = int(inst[3])
+        numcrates = int(inst[0] + inst[1])
+        #print(numcrates)
+        #print(oldcolumn)
+        #print(newcolumn)
+    else:
+        oldcolumn = int(inst[1])
+        newcolumn = int(inst[2])
+        numcrates = int(inst[0])
+        #print(numcrates)
+        #print(oldcolumn)
+        #print(newcolumn)
+    # Retrieve the crates from the old column
+    moved_crates = crates[oldcolumn - 1][-numcrates:]
 
+    # Remove the moved crates from the old column
+    crates[oldcolumn - 1] = crates[oldcolumn - 1][:-numcrates]
 
+    # Add the moved crates to the new column
+    crates[newcolumn - 1] += moved_crates
 
-
+    
