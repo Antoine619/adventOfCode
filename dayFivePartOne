@@ -1,3 +1,18 @@
+def move_crates(crates, numcrates, oldcolumn, newcolumn):
+
+    if oldcolumn == newcolumn:
+        return  # No need to move if old and new columns are the same
+
+    oldstack = crates[oldcolumn - 1]
+    newstack = crates[newcolumn - 1]
+
+    if numcrates > len(oldstack):
+        numcrates = len(oldstack)  # Ensure you don't move more crates than available
+
+    moved_crates = oldstack[-numcrates:]  # Get the crates to move
+    oldstack[-numcrates:] = []  # Remove the moved crates from the old stack
+    newstack.extend(moved_crates)  # Add the moved crates to the new stack
+
 with open("advent/input.txt") as f:
     lines = f.readlines()
 
@@ -27,23 +42,23 @@ for inst in newlines:
         oldcolumn = int(inst[2])
         newcolumn = int(inst[3])
         numcrates = int(inst[0] + inst[1])
-        #print(numcrates)
-        #print(oldcolumn)
-        #print(newcolumn)
+        print(inst)
+        print(numcrates)
+        print(oldcolumn)
+        print(newcolumn)
     else:
         oldcolumn = int(inst[1])
         newcolumn = int(inst[2])
         numcrates = int(inst[0])
-        #print(numcrates)
-        #print(oldcolumn)
-        #print(newcolumn)
-    # Retrieve the crates from the old column
-    moved_crates = crates[oldcolumn - 1][-numcrates:]
+        print(inst)
+        print(numcrates)
+        print(oldcolumn)
+        print(newcolumn)
+    move_crates(crates, numcrates, oldcolumn, newcolumn)
 
-    # Remove the moved crates from the old column
-    crates[oldcolumn - 1] = crates[oldcolumn - 1][:-numcrates]
-
-    # Add the moved crates to the new column
-    crates[newcolumn - 1] += moved_crates
+for i, stack in enumerate(crates, start=1):
+    print(f"Stack {i}: {stack}")
+    
+    
 
     
