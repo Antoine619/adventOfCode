@@ -39,4 +39,12 @@ for inst in newlines: #converts all numbers in the string into int
     oldstack = oldstack[:-numcrates]
     newstack.append(currentcrates)
 
-print(crates)
+print(stack1)
+print(stack2)
+print(stack3)
+print(stack4)
+print(stack5)
+print(stack6)
+print(stack7)
+print(stack8)
+print(stack9)
