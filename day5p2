@@ -22,6 +22,10 @@ crates = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9
 
 inst = line
 
+#def flip():
+    #currentcrates.__reversed__()
+    #return currentcrates
+
 for inst in newlines: #converts all numbers in the string into int
     if len(inst) == 4:
         oldcolumn = int(inst[2])
@@ -35,9 +39,13 @@ for inst in newlines: #converts all numbers in the string into int
     oldstack = crates[oldcolumn - 1] #assigns the int to its stack
     newstack = crates[newcolumn - 1]
 
-    currentcrates = oldstack[-numcrates:]
-    oldstack = oldstack[:-numcrates]
-    newstack.append(currentcrates)
+    movedcrates = []
+    for num in range(numcrates):
+        if oldstack:
+            currentcrates = oldstack.pop()
+            movedcrates.append(currentcrates)
+    movedcrates.reverse()
+    newstack.append(movedcrates)
 
 print(stack1)
 print(stack2)
