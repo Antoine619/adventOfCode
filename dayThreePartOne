@@ -4,7 +4,9 @@ with open("advent/input.txt") as f:
 total = 0
 
 for line in lines:
-    l1, l2 = line[:len(line) // 2], line[len(line) // 2:]
+    half = len(line) // 2
+    l1 = line[:half]
+    l2 = line[half:]
     common = set(l1).intersection(l2)
     letter = common.pop()
 
@@ -12,5 +14,5 @@ for line in lines:
         total += ord(letter) - ord("A") + 27
     else:
         total += ord(letter) - ord("a") + 1
-        
+
 print(total)
